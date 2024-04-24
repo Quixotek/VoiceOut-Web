@@ -1,0 +1,34 @@
+name: ci-voiceout-web
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    name: Test Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test:cov
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
