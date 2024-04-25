@@ -33,12 +33,16 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import Link from "next/link";
+import {
+  ReportCreateInput,
+  useCreateReportMutation,
+} from "@/lib/apolloComponents";
 
 const schema = z.object({
-  discriminationType: z.string(),
-  report: z.string(),
+  type: z.string(),
+  description: z.string(),
   location: z.string().optional(),
-  attachments: z.string().optional(),
+  attachments: z.array().optional(),
 });
 
 interface IFormInput {
@@ -59,6 +63,9 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const [createReport, { data: reportData, loading, error }] =
+    useCreateReportMutation();
+
   const {
     register,
     handleSubmit,
@@ -66,21 +73,24 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
     control,
     reset,
     formState: { errors },
-  } = useForm<IFormInput>({
+  } = useForm<ReportCreateInput>({
     resolver: zodResolver(schema),
     defaultValues: {
-      discriminationType: "",
-      report: "",
-      location: "",
-      attachments: "",
+      type: "",
+      description: "",
+      locations: [],
+      isReviewed: false,
+      attachments: [],
     },
     mode: "onBlur",
   });
 
   const files: File[] = [];
 
-  const onSubmit = (data: IFormInput) => {
+  const onSubmit = (data: ReportCreateInput) => {
     console.log(data);
+    createReport({ variables: { createReportInput: data } });
+    console.log(reportData);
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,15 +112,15 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
             <div>
-              <Label htmlFor="discriminationType">Type of Discrimination</Label>
+              <Label htmlFor="type">Type of Discrimination</Label>
               <Controller
                 control={control}
-                name="discriminationType"
+                name="type"
                 render={({ field }) => (
                   <Select
                     {...field}
                     onValueChange={(value) => {
-                      setValue("discriminationType", value);
+                      setValue("type", value);
                       field.onChange(value);
                     }}
                   >
@@ -133,21 +143,21 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
                   </Select>
                 )}
               />
-              {errors.discriminationType && (
-                <p className="text-red-500 text-xs">
-                  {errors.discriminationType.message}
-                </p>
+              {errors.type && (
+                <p className="text-red-500 text-xs">{errors.type.message}</p>
               )}
             </div>
             <div>
-              <Label htmlFor="report">Report Details</Label>
+              <Label htmlFor="description">Report Details</Label>
               <Input
-                id="report"
+                id="description"
                 placeholder="Enter report details here..."
-                {...register("report")}
+                {...register("description")}
               />
-              {errors.report && (
-                <p className="text-red-500 text-xs">{errors.report.message}</p>
+              {errors.description && (
+                <p className="text-red-500 text-xs">
+                  {errors.description.message}
+                </p>
               )}
             </div>
             <Accordion type="single" collapsible className="w-full">
@@ -184,15 +194,15 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4">
                   <div>
-                    <Label htmlFor="location">Location (Optional)</Label>
+                    <Label htmlFor="locations">Location (Optional)</Label>
                     <Input
-                      id="location"
+                      id="locations"
                       placeholder="Enter location..."
-                      {...register("location")}
+                      {...register("locations")}
                     />
-                    {errors.location && (
+                    {errors.locations && (
                       <p className="text-red-500 text-xs">
-                        {errors.location.message}
+                        {errors.locations.message}
                       </p>
                     )}
                   </div>
