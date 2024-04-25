@@ -1,16 +1,14 @@
 "use client";
 
-import { Menu, Package2, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ModeToggle } from "../theme-toggle";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-const Navigation = ({ onAboutClick, onFeaturesClick, onFAQClick }: any) => {
-  const router = useRouter();
+const Navigation = () => {
   return (
     <div>
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -34,20 +32,6 @@ const Navigation = ({ onAboutClick, onFeaturesClick, onFAQClick }: any) => {
           >
             Home
           </Link>
-          {/* <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-            onClick={onAboutClick}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-            onClick={onFeaturesClick}
-          >
-            Features
-          </Link> */}
         </nav>
         <Sheet>
           <SheetTrigger asChild>
@@ -83,14 +67,12 @@ const Navigation = ({ onAboutClick, onFeaturesClick, onFAQClick }: any) => {
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-foreground"
-                onClick={onAboutClick}
               >
                 About
               </Link>
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-foreground"
-                onClick={onFeaturesClick}
               >
                 Features
               </Link>
@@ -98,30 +80,8 @@ const Navigation = ({ onAboutClick, onFeaturesClick, onFAQClick }: any) => {
           </SheetContent>
         </Sheet>
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-          <form className="ml-auto flex-1 sm:flex-initial">
-            {/* <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search products..."
-                className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-              />
-            </div> */}
-          </form>
+          <form className="ml-auto flex-1 sm:flex-initial"></form>
           <ModeToggle />
-          {/* <h4
-            className="scroll-m-20 text-sm cursor-pointer font-semibold tracking-tight hover:underline"
-            onClick={() => router.push("/signin")}
-          >
-            Signin
-          </h4>
-          {" | "}
-          <h4
-            className="scroll-m-20 text-sm cursor-pointer font-semibold tracking-tight hover:underline"
-            onClick={() => router.push("/signup")}
-          >
-            Signup
-          </h4> */}
         </div>
       </header>
     </div>
