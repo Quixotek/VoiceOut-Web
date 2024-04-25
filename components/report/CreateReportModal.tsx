@@ -41,8 +41,8 @@ import {
 const schema = z.object({
   type: z.string(),
   description: z.string(),
-  location: z.string().optional(),
-  attachments: z.array().optional(),
+  locations: z.array(z.string()).optional(),
+  attachments: z.array(z.string()).optional(),
 });
 
 interface IFormInput {
