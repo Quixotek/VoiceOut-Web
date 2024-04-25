@@ -12,7 +12,7 @@ const withPWA = withPWAInit({
     disableDevLogs: true,
   },
 });
-const nextConfig = { reactStrictMode: true };
+
 export default withPWA({
-  nextConfig,
+  reactStrictMode: true,
 });
