@@ -33,3 +33,11 @@ To run tests, run the following command
 ```bash
   yarn test
 ```
+
+## Running Codegen
+
+To run codegen, run the following command
+
+```bash
+  yarn generate
+```

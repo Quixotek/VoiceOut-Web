@@ -20,9 +20,9 @@ const Navigation = () => {
             <Image
               src="/VoiceOut.svg"
               alt="logo"
-              className="w-12 h-12"
-              width={12}
-              height={12}
+              className="w-20 h-20"
+              width={20}
+              height={20}
             />
           </Link>
 
@@ -31,6 +31,12 @@ const Navigation = () => {
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Home
+          </Link>
+          <Link
+            href="#"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Communities
           </Link>
         </nav>
         <Sheet>
@@ -68,13 +74,7 @@ const Navigation = () => {
                 href="#"
                 className="text-muted-foreground hover:text-foreground"
               >
-                About
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Features
+                Communities
               </Link>
             </nav>
           </SheetContent>
