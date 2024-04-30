@@ -33,7 +33,7 @@ const Navigation = () => {
             Home
           </Link>
           <Link
-            href="#"
+            href="/community"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Communities
@@ -71,7 +71,7 @@ const Navigation = () => {
                 Home
               </Link>
               <Link
-                href="#"
+                href="/community"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Communities
