@@ -39,8 +39,8 @@ import {
 } from "@/lib/apolloComponents";
 
 const schema = z.object({
-  type: z.string(),
-  description: z.string(),
+  type: z.string().nonempty("Please select a type"),
+  description: z.string().nonempty("Please enter the details"),
   locations: z.array(z.string()).optional(),
   attachments: z.array(z.string()).optional(),
 });
@@ -129,7 +129,6 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
-                        <SelectLabel>Type</SelectLabel>
                         <SelectItem value="racial">
                           Racial Discrimination
                         </SelectItem>

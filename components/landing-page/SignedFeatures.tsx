@@ -1,91 +1,81 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
 const SignedFeatures = () => {
   return (
-    <section className="py-12 bg-gray-900 sm:py-16 lg:py-20 xl:py-20">
+    <section className="py-12 bg-primary sm:py-16 lg:py-20 xl:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <div className="max-w-xl text-center mx-auto">
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Unlock exclusive features by{" "}
-            <Link href="/signup" className="hover:underline cursor-pointer">
-              signing up
-            </Link>
+        <div className="max-w-lg mx-auto text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-background sm:text-4xl lg:text-5xl">
+            Unlock exclusive features by signing up
           </h2>
-          <p className="mt-4 text-lg text-gray-400">
+          <p className="mt-4 text-base font-normal leading-7 text-gray-600 lg:text-lg lg:mt-6 lg:leading-8">
             Join our community and enjoy these benefits:
           </p>
         </div>
 
-        <div className="grid max-w-md grid-cols-1 gap-12 mt-12 lg:max-w-none lg:grid-cols-4 sm:mt-16 lg:mt-20">
-          <div className="relative flex flex-start lg:flex-col">
-            <span
-              className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
-              aria-hidden="true"
-            ></span>
-
-            <div className="w-3 h-3 bg-gray-700 rounded-full shrink-0"></div>
-            <div className="ml-6 lg:ml-0 lg:mt-10">
-              <h3 className="text-2xl font-semibold text-gray-300">
-                Posting in Communities
+        <div className="grid max-w-md grid-cols-1 gap-5 mx-auto  lg:grid-cols-3 sm:mt-16 sm:gap-6 lg:gap-8 lg:max-w-none">
+          <div className="bg-gray-100 rounded-2xl">
+            <div className="px-4 py-5 sm:p-6   flex flex-col gap-4">
+              <h3 className="px-4 pt-6 text-xl font-semibold text-gray-900">
+                Connect with like-minded individuals and share insights in{" "}
+                <span className="bg-blue-300">specialized communities.</span>
               </h3>
-              <p className="mt-4 text-base font-normal text-gray-400">
-                Connect with like-minded individuals and share insights in
-                specialized communities.
-              </p>
+              <Link
+                href="/signup"
+                className="hover:underline text-center  font-semibold mt-3"
+              >
+                Try it now --&gt;
+              </Link>
+              <img
+                className="object-cover  rounded-xl"
+                src="https://images.unsplash.com/photo-1417733403748-83bbc7c05140?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
             </div>
           </div>
 
-          <div className="relative flex flex-start lg:flex-col">
-            <span
-              className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
-              aria-hidden="true"
-            ></span>
-
-            <div className="w-3 h-3 bg-blue-600 rounded-full shrink-0"></div>
-            <div className="ml-6 lg:ml-0 lg:mt-10">
-              <h3 className="text-2xl font-semibold text-gray-300">
-                Expert Legal Advice
+          <div className="bg-gray-100 rounded-2xl">
+            <div className="px-4 py-5 sm:p-6  flex flex-col gap-4">
+              <h3 className="px-4 pt-6 text-xl font-semibold text-gray-900">
+                Get access to{" "}
+                <span className="bg-blue-300">professional legal advice</span>{" "}
+                to protect yourself and your business.
               </h3>
-              <p className="mt-4 text-base font-normal text-gray-400">
-                Get access to professional legal advice to protect yourself and
-                your business.
-              </p>
+              <Link
+                href="/signup"
+                className="hover:underline text-center  font-semibold mt-3"
+              >
+                Try it now --&gt;
+              </Link>
+              <img
+                className="object-cover  rounded-xl"
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
             </div>
           </div>
 
-          <div className="relative flex flex-start lg:flex-col">
-            <span
-              className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
-              aria-hidden="true"
-            ></span>
-
-            <div className="w-3 h-3 bg-gray-700 rounded-full shrink-0"></div>
-            <div className="ml-6 lg:ml-0 lg:mt-10">
-              <h3 className="text-2xl font-semibold text-gray-300">
-                Custom Profile
+          <div className="bg-gray-100 rounded-2xl">
+            <div className="px-4 py-5 sm:p-6  flex flex-col gap-4">
+              <h3 className="px-4 pt-6 text-xl font-semibold text-gray-900">
+                Customize your profile to{" "}
+                <span className="bg-blue-300">distinguish yourself</span> or{" "}
+                <span className="bg-blue-300">maintain anonymity</span>.
               </h3>
-              <p className="mt-4 text-base font-normal text-gray-400">
-                Personalize your profile and stand out from the crowd.
-              </p>
-            </div>
-          </div>
-
-          <div className="relative flex flex-start lg:flex-col">
-            <span
-              className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
-              aria-hidden="true"
-            ></span>
-
-            <div className="w-3 h-3 bg-gray-700 rounded-full shrink-0"></div>
-            <div className="ml-6 lg:ml-0 lg:mt-8">
-              <Button className="text-lg font-semibold bg-white text-gray-900 hover:underline transition hover:bg-slate-100">
-                <Link href="/signup">Create an account? --&gt;</Link>
-              </Button>
-              <p className="mt-4 text-base font-normal text-gray-400">
-                Join us today and unlock these exciting features!
-              </p>
+              <Link
+                href="/signup"
+                className="hover:underline text-center  font-semibold mt-3"
+              >
+                Try it now --&gt;
+              </Link>
+              <img
+                className="object-cover  rounded-xl"
+                src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
             </div>
           </div>
         </div>
