@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 const SignedFeatures = () => {
@@ -25,7 +24,7 @@ const SignedFeatures = () => {
               </h3>
               <Link
                 href="/signup"
-                className="hover:underline text-center  font-semibold mt-3"
+                className="hover:underline text-center  font-semibold mt-3 text-black"
               >
                 Try it now --&gt;
               </Link>
@@ -46,7 +45,7 @@ const SignedFeatures = () => {
               </h3>
               <Link
                 href="/signup"
-                className="hover:underline text-center  font-semibold mt-3"
+                className="hover:underline text-center  font-semibold mt-3 text-black"
               >
                 Try it now --&gt;
               </Link>
@@ -67,7 +66,7 @@ const SignedFeatures = () => {
               </h3>
               <Link
                 href="/signup"
-                className="hover:underline text-center  font-semibold mt-3"
+                className="hover:underline text-center  font-semibold mt-3 text-black"
               >
                 Try it now --&gt;
               </Link>

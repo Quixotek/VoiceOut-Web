@@ -12,10 +12,9 @@ import { useState } from "react";
 import { EyeOff, Eye } from "lucide-react";
 
 const schema = z.object({
-  firstName: z.string().min(1, "Must contain atleast one character"),
-  lastName: z.string().min(1, "Must contain atleast one character"),
-  email: z.string().email(),
-  password: z.string().min(6, "Must contain atleast six (6) characters"),
+  username: z.string().min(1, "Username is required!"),
+  email: z.string().optional(),
+  password: z.string().min(6, "Must contain atleast eight (8) characters"),
 });
 
 type SignUpFormData = z.infer<typeof schema>;
@@ -50,36 +49,22 @@ const Signup = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="grid gap-6 mt-10 lg:mt-16"
               >
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="first-name">First name</Label>
-                    <Input
-                      id="first-name"
-                      placeholder="Max"
-                      {...register("firstName")}
-                    />
-                    {errors.firstName && (
-                      <p className="text-red-500 text-xs">
-                        {errors.firstName.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="last-name">Last name</Label>
-                    <Input
-                      id="last-name"
-                      placeholder="Robinson"
-                      {...register("lastName")}
-                    />
-                    {errors.lastName && (
-                      <p className="text-red-500 text-xs">
-                        {errors.lastName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="username">Username</Label>
+                  <Input
+                    id="username"
+                    type="username"
+                    {...register("username")}
+                  />
+                  {errors.username && (
+                    <p className="text-red-500 text-xs">
+                      {errors.username.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="email">Email (Optional)</Label>
                   <Input
                     id="email"
                     type="email"
@@ -115,7 +100,7 @@ const Signup = () => {
                   <Button type="submit" className="w-full">
                     Create an account
                   </Button>
-                  <Button
+                  {/* <Button
                     type="button"
                     variant="outline"
                     className="w-full"
@@ -126,7 +111,7 @@ const Signup = () => {
                     // }}
                   >
                     Sign up with Google
-                  </Button>
+                  </Button> */}
                 </div>
               </form>
               <div className="mt-4 text-center text-sm">
@@ -148,32 +133,71 @@ const Signup = () => {
           </div>
 
           <div className="relative max-w-md mx-auto">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-800 rounded-xl">
-              <svg
-                className="w-auto h-5 text-white"
-                viewBox="0 0 33 23"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M32.0011 4.7203L30.9745 0C23.5828 0.33861 18.459 3.41404 18.459 12.4583V22.8687H31.3725V9.78438H26.4818C26.4819 6.88236 28.3027 5.17551 32.0011 4.7203Z" />
-                <path d="M13.5421 4.7203L12.5155 0C5.12386 0.33861 0 3.41413 0 12.4584V22.8687H12.914V9.78438H8.02029C8.02029 6.88236 9.84111 5.17551 13.5421 4.7203Z" />
-              </svg>
-            </div>
+            <section className="py-12 bg-gray-900 sm:py-16 lg:py-20 xl:py-20">
+              <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                <div className="max-w-xs">
+                  <h2 className="text-3xl font-semibold tracking-tight text-white ">
+                    Benefits of Signing up
+                  </h2>
+                </div>
 
-            <blockquote className="mt-14">
-              <p className="text-2xl font-medium leading-relaxed text-white lg:text-3xl font-pj">
-                “You are not defined by the cruelty of others. You are defined
-                by the courage you show in the face of adversity.”
-              </p>
-            </blockquote>
+                <div className="grid max-w-md grid-cols-1 gap-12 mt-12 lg:max-w-none ">
+                  <div className="relative flex flex-start lg:flex-col">
+                    <span
+                      className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
+                      aria-hidden="true"
+                    ></span>
 
-            <div className="flex items-center mt-12">
-              <div className="ml-4">
-                <p className="mt-px text-lg font-normal text-gray-400 font-pj">
-                  - Unknown
-                </p>
+                    <div className="w-3 h-3 bg-blue-600 rounded-full shrink-0"></div>
+                    <div className="ml-6 lg:ml-0 lg:mt-4">
+                      <h3 className="text-2xl font-semibold text-gray-300">
+                        Community
+                      </h3>
+                      <p className="mt-4 text-base font-normal text-gray-400">
+                        Connect with like-minded individuals and share insights
+                        in specialized communities.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex flex-start lg:flex-col">
+                    <span
+                      className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
+                      aria-hidden="true"
+                    ></span>
+
+                    <div className="w-3 h-3 bg-gray-700 rounded-full shrink-0"></div>
+                    <div className="ml-6 lg:ml-0 lg:mt-4">
+                      <h3 className="text-2xl font-semibold text-gray-300">
+                        Legal Advices
+                      </h3>
+                      <p className="mt-4 text-base font-normal text-gray-400">
+                        Get access to professional legal advice to protect
+                        yourself and your business.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex flex-start lg:flex-col">
+                    <span
+                      className="absolute top-7 left-1.5 h-full w-px lg:w-full lg:h-px -ml-px bg-gray-700 lg:top-1.5 lg:left-7"
+                      aria-hidden="true"
+                    ></span>
+
+                    <div className="w-3 h-3 bg-gray-700 rounded-full shrink-0"></div>
+                    <div className="ml-6 lg:ml-0 lg:mt-4">
+                      <h3 className="text-2xl font-semibold text-gray-300">
+                        Profile Customization
+                      </h3>
+                      <p className="mt-4 text-base font-normal text-gray-400">
+                        Customize your profile to distinguish yourself or
+                        maintain anonymity.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
