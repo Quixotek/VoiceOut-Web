@@ -78,9 +78,9 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
     defaultValues: {
       type: "",
       description: "",
-      locations: [],
+      locations: "" || null,
       isReviewed: false,
-      attachments: [],
+      attachments: "" || null,
     },
     mode: "onBlur",
   });
