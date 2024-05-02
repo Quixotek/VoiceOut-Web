@@ -48,8 +48,8 @@ const schema = z.object({
 interface IFormInput {
   discriminationType: string;
   report: string;
-  location?: string;
-  attachments?: string;
+  location?: string[];
+  attachments?: string[];
 }
 
 interface CreateReportModalProps {
@@ -78,9 +78,9 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
     defaultValues: {
       type: "",
       description: "",
-      locations: "" || null,
+      locations: [] || null,
       isReviewed: false,
-      attachments: "" || null,
+      attachments: [] || null,
     },
     mode: "onBlur",
   });
