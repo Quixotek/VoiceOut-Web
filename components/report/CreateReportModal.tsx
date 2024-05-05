@@ -41,14 +41,14 @@ import {
 const schema = z.object({
   type: z.string().nonempty("Please select a type"),
   description: z.string().nonempty("Please enter the details"),
-  locations: z.array(z.string()).optional(),
+  locations: z.string().optional(),
   attachments: z.array(z.string()).optional(),
 });
 
 interface IFormInput {
   discriminationType: string;
   report: string;
-  location?: string[];
+  location?: string;
   attachments?: string[];
 }
 
@@ -78,7 +78,7 @@ const CreateReportModal: React.FC<CreateReportModalProps> = ({
     defaultValues: {
       type: "",
       description: "",
-      locations: [] || null,
+      locations: "",
       isReviewed: false,
       attachments: [] || null,
     },
