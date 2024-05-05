@@ -18,6 +18,42 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
 };
 
+export type LegalResources = {
+  __typename?: 'LegalResources';
+  author: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  notes: Scalars['String']['output'];
+  publicationDate: Scalars['DateTime']['output'];
+  source: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+  verified: Scalars['Boolean']['output'];
+};
+
+export type LegalResourcesPaginationInput = {
+  limit?: Scalars['Float']['input'];
+  page?: Scalars['Float']['input'];
+  q?: InputMaybe<Scalars['String']['input']>;
+  sort?: Scalars['String']['input'];
+  sortBy?: Scalars['String']['input'];
+};
+
+export type LegalResourcesSearch = {
+  __typename?: 'LegalResourcesSearch';
+  item: Array<LegalResources>;
+  meta: Meta;
+};
+
+export type Meta = {
+  __typename?: 'Meta';
+  limit: Scalars['Float']['output'];
+  page: Scalars['Float']['output'];
+  total: Scalars['Float']['output'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createReport: Report;
@@ -58,7 +94,7 @@ export type Report = {
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   isReviewed?: Maybe<Scalars['Boolean']['output']>;
-  locations?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  locations?: Maybe<Scalars['String']['output']>;
   type: Scalars['String']['output'];
 };
 
@@ -66,7 +102,7 @@ export type ReportCreateInput = {
   attachments?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description: Scalars['String']['input'];
   isReviewed?: InputMaybe<Scalars['Boolean']['input']>;
-  locations?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  locations: Scalars['String']['input'];
   type: Scalars['String']['input'];
 };
 
@@ -74,7 +110,7 @@ export type ReportUpdateInput = {
   attachments?: InputMaybe<Array<Scalars['String']['input']>>;
   description?: InputMaybe<Scalars['String']['input']>;
   isReviewed?: InputMaybe<Scalars['Boolean']['input']>;
-  locations?: InputMaybe<Array<Scalars['String']['input']>>;
+  locations?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -82,9 +118,21 @@ export type User = {
   __typename?: 'User';
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  legalResources?: Maybe<LegalResources>;
+  legalResourcesSearch?: Maybe<LegalResourcesSearch>;
   name: Scalars['String']['output'];
   password: Scalars['String']['output'];
-  userId: Scalars['String']['output'];
+  userId?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type UserLegalResourcesArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type UserLegalResourcesSearchArgs = {
+  input: LegalResourcesPaginationInput;
 };
 
 
@@ -97,7 +145,7 @@ export type CreateReportMutationVariables = Exact<{
 }>;
 
 
-export type CreateReportMutation = { __typename?: 'Mutation', createReport: { __typename?: 'Report', attachments?: Array<string | null> | null, createdAt: any, description: string, id: string, isReviewed?: boolean | null, locations?: Array<string | null> | null, type: string } };
+export type CreateReportMutation = { __typename?: 'Mutation', createReport: { __typename?: 'Report', attachments?: Array<string | null> | null, createdAt: any, description: string, id: string, isReviewed?: boolean | null, locations?: string | null, type: string } };
 
 
 export const CreateReportDocument = gql`
