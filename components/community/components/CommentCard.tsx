@@ -40,7 +40,11 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-const CommentCard = () => {
+
+interface Props{
+    id: string
+}
+const CommentCard :React.FC<Props>= ({id}) => {
     const [showReplies, setShowReplies] = React.useState(false);
     const [buttonClicked, setButtonClicked] = React.useState(false);
     const [isLiked, setIsLiked] = React.useState(false);

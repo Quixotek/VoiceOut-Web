@@ -33,7 +33,20 @@ import { EllipsisVertical, Eye, Heart, Newspaper , CircleX, SquarePen, Info,} fr
 import Link from "next/link";
 import DeleteAlertDialog from "./alertdialog/DeleteAlertDialog";
 
-const CardDetails = () => {
+export interface Thread {
+    userid: string
+    id: string
+    title: string
+    description: string
+    type: string
+    views: number
+    replies:number
+    reacts: number
+}
+interface Props {
+    threads: Thread 
+}
+const CardDetails : React.FC<Props> = ({threads}) => {
     const [isLiked, setIsLiked] = React.useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
     const openDeleteDialog = () => {
@@ -53,8 +66,8 @@ const CardDetails = () => {
                 <CardHeader >
                     <div className="flex justify-between">
                         <span className="flex gap-3 items-start">
-                            <CardTitle className="title-card-responsive">Gender Bias in the Workplace</CardTitle>
-                            <Badge>Gender</Badge>
+                            <CardTitle className="title-card-responsive">{threads.title}</CardTitle>
+                            <Badge>{threads.type}</Badge>
                         </span>
                         <span className="flex xl:hidden lg:hidden ">
                             <DropdownMenu>
@@ -83,18 +96,18 @@ const CardDetails = () => {
                             </DropdownMenu>
                         </span>
                     </div>
-                    <CardDescription className="p-responsive">This forum discussion focuses on experiences of gender discrimination in professional settings. Participants share anecdotes, offer support, and discuss strategies for addressing bias in hiring, promotions, and everyday interactions.</CardDescription>
+                    <CardDescription className="p-responsive">{threads.description}</CardDescription>
                 </CardHeader>
             </div>
             <div className="xl:w-2/5 lg:w-2/5 flex lg:flex-col xl:flex-col justify-between p-6">
                 <div className="flex justify-end items-center gap-3">
                     <span className="flex gap-2 items-center">
                         <Eye color=" #94A3B8" />
-                        <p className="p-responsive">40.1 k views</p>
+                        <p className="p-responsive">{threads.views} views</p>
                     </span>
                     <span className="flex gap-2 items-center">
                         <Newspaper color=" #94A3B8" />
-                        <p className="p-responsive">1.5 k replies</p>
+                        <p className="p-responsive">{threads.replies} replies</p>
                     </span>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -125,7 +138,7 @@ const CardDetails = () => {
                 <div>
                     <span className="flex justify-end items-center gap-2" onClick={handleLikeClick}>
                         <Heart color={isLiked ? "#94A3B8" : "#BA0000"} />
-                        <p className="p-responsive">{isLiked ? '204' : '203'} react</p>
+                        <p className="p-responsive">{threads.reacts} react</p>
                     </span>
                 </div>
             </div>

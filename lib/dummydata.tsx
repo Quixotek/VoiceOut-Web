@@ -1,3 +1,5 @@
+import { Thread } from "@/components/community/components/CardDetail"
+
 export const users = [
     {
         "id": "1001",
@@ -22,7 +24,7 @@ export const users = [
     }
 ]
 
-export const threads = [
+export const threads : Thread[]= [
     {
         "userid": "1001",
         "id": "1",

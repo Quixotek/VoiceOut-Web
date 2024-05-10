@@ -4,11 +4,14 @@ import CardDetails from "./components/CardDetail"
 import { Input } from "../ui/input"
 import CommentCard from "./components/CommentCard"
 import { FC } from "react"
+import { comments, threads } from "@/lib/dummydata"
 
 interface Props {
     id: string
 }
 const CommunityDetails: FC<Props> = ({ id }) => {
+    const thread = threads.find(thread => thread.id === id)
+
     return (
         <main className="mx-[3%] xl:mx-[10%] lg:mx-[10%] my-6">
             <Button>
@@ -17,7 +20,7 @@ const CommunityDetails: FC<Props> = ({ id }) => {
             <h1 className="py-6 text-4xl font-semibold tracking-tight font-responsive">
                 Discussion Thread
             </h1>
-            <CardDetails />
+            <CardDetails threads={thread!!}/>
             <div className="flex gap-3">
                 <Input type="comment" placeholder="Add a comment" />
                 <Button>Add comment</Button>
@@ -26,7 +29,7 @@ const CommunityDetails: FC<Props> = ({ id }) => {
                 Comments
             </h1>
             <div>
-                <CommentCard />
+                <CommentCard id={id}/>
             </div>
 
             <div className="flex justify-center">
