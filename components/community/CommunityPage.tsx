@@ -88,20 +88,20 @@ const CommunityPage = () => {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                {users.map(user => (
-                    threads.map((thread, index) => (
-                        <CardThread
-                            key={index}
-                            title={thread.title}
-                            description={thread.description}
-                            type={thread.type}
-                            views={thread.views}
-                            replies={thread.replies}
-                            id={thread.id}
-                            userName={user.name}
-                        />
-                    ))
+
+                {threads.map((thread, index) => (
+                    <CardThread
+                        key={index}
+                        title={thread.title}
+                        description={thread.description}
+                        type={thread.type}
+                        views={thread.views}
+                        replies={thread.replies}
+                        id={thread.id}
+
+                    />
                 ))}
+              
             </div>
 
 

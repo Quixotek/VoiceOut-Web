@@ -24,9 +24,8 @@ interface Props {
   views: number
   replies: number
   id: string
-  userName: string
 }
-const CardThread: React.FC<Props> = ({ title, description, type, views, replies, id, userName }) => {
+const CardThread: React.FC<Props> = ({ title, description, type, views, replies, id }) => {
   return (
     <Card className="flex my-6 xl:flex-row lg:flex-row flex-col">
       <div className="lg:w-3/5 xl:w-3/5">
