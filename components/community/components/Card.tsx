@@ -16,20 +16,30 @@ import {
 } from "@/components/ui/avatar"
 import { Eye, Newspaper } from 'lucide-react';
 import Link from "next/link"
-const CardWithForm = () => {
+
+interface Props {
+  title: string
+  description: string
+  type: string
+  views: number
+  replies: number
+  id: string
+  userName: string
+}
+const CardThread: React.FC<Props> = ({ title, description, type, views, replies, id, userName }) => {
   return (
     <Card className="flex my-6">
       <div className="w-3/5">
         <CardHeader>
           <span className="flex gap-3">
-            <CardTitle>Gender Bias in the Workplace</CardTitle>
-            <Badge>Gender</Badge>
+            <CardTitle>{title}</CardTitle>
+            <Badge>{type}</Badge>
           </span>
-          <CardDescription>This forum discussion focuses on experiences of gender discrimination in professional settings. Participants share anecdotes, offer support, and discuss strategies for addressing bias in hiring, promotions, and everyday interactions.</CardDescription>
+          <CardDescription>{description}</CardDescription>
         </CardHeader>
       </div>
       <div className="w-2/5 flex flex-col justify-between p-6">
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-end gap-2 py-4">
           <Avatar className="w-[24px] h-[24px]">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -45,15 +55,15 @@ const CardWithForm = () => {
 
         </div>
         <div className="flex justify-between items-center">
-          <span className="flex">
+          <span className="flex gap-2">
             <Eye />
-            <p>40.1 k views</p>
+            <p>{views} views</p>
           </span>
-          <span className="flex">
+          <span className="flex gap-2">
             <Newspaper />
-            <p>1.5 k replies</p>
+            <p>{replies} replies</p>
           </span>
-          <Link href={`/community/${'my-post'}`} passHref>
+          <Link href={`/community/${id}`} passHref>
             <Button>View Thread</Button>
           </Link>
         </div>
@@ -61,4 +71,4 @@ const CardWithForm = () => {
     </Card>
   )
 }
-export default CardWithForm
+export default CardThread

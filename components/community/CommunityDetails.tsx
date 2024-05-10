@@ -3,8 +3,12 @@ import { Button } from "../ui/button"
 import CardDetails from "./components/CardDetail"
 import { Input } from "../ui/input"
 import CommentCard from "./components/CommentCard"
+import { FC } from "react"
 
-const CommunityDetails = () => {
+interface Props {
+    id: string
+}
+const CommunityDetails : FC<Props> = ({id}) => {
     return (
         <div className="mx-[10%] my-6">
             <Button>

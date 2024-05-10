@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select"
 import { Search, Info } from 'lucide-react';
 import { Button } from "../ui/button"
-import CardWithForm from "./components/Card";
+import CardThread from "./components/Card";
 import {
     Tooltip,
     TooltipContent,
@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/tooltip"
 import { Dialog, DialogTrigger } from "../ui/dialog";
 import StartDiscussionDialog from "./components/dialogs/StartDiscussionDialog";
+import { users, threads } from "@/lib/dummydata";
+
 const CommunityPage = () => {
     return (
         <div className="mx-[10%] my-6">
@@ -48,7 +50,7 @@ const CommunityPage = () => {
                         <DialogTrigger asChild>
                             <Button >Start Discussion</Button>
                         </DialogTrigger>
-                        <StartDiscussionDialog/>
+                        <StartDiscussionDialog />
                     </Dialog>
                     <TooltipProvider>
                         <Tooltip>
@@ -66,10 +68,20 @@ const CommunityPage = () => {
                 <h1 className="my-6 text-4xl font-semibold tracking-tight">
                     Recent Discussion
                 </h1>
-
-                <CardWithForm />
-                <CardWithForm />
-                <CardWithForm />
+                {users.map(user => (
+                    threads.map((thread, index) => (
+                        <CardThread
+                            key={index}
+                            title={thread.title}
+                            description={thread.description}
+                            type={thread.type}
+                            views={thread.views}
+                            replies={thread.replies}
+                            id={thread.id} 
+                            userName={user.name} 
+                        />
+                    ))
+                ))}
             </div>
         </div>
     )
