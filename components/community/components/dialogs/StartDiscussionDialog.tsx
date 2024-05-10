@@ -21,6 +21,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
+import { Switch } from "@/components/ui/switch"
+import {
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+} from "@/components/ui/avatar"
 export function StartDiscussionDialog() {
     return (
         <DialogContent className="sm:max-w-[425px]">
@@ -28,7 +34,21 @@ export function StartDiscussionDialog() {
                 <DialogTitle>Start a Discussion</DialogTitle>
                 <Separator />
                 <DialogDescription>
-                    Panget N. Noah
+                    <div className="flex items-center">
+                        <div>
+                            <Avatar className="w-[28px] h-[28px]">
+                                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+                        </div>
+                        <div className="p-2">
+                            <h1 className="font-semibold">Noah Panget</h1>
+                            <div className="flex items-center space-x-1">
+                                <Switch id="anonymous" />
+                                <Label htmlFor="anonymous">Post as anonymous</Label>
+                            </div>
+                        </div>
+                    </div>
                 </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
@@ -67,7 +87,7 @@ export function StartDiscussionDialog() {
                     <Textarea
                         placeholder="Description"
                         className="resize-none"
-                        
+
                     />
                 </div>
             </div>
