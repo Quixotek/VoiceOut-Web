@@ -8,13 +8,13 @@ import { FC } from "react"
 interface Props {
     id: string
 }
-const CommunityDetails : FC<Props> = ({id}) => {
+const CommunityDetails: FC<Props> = ({ id }) => {
     return (
-        <div className="mx-[10%] my-6">
+        <main className="mx-[3%] xl:mx-[10%] lg:mx-[10%] my-6">
             <Button>
                 <Reply className="mr-2 h-4 w-4" /> Back
             </Button>
-            <h1 className="py-6 text-4xl font-semibold tracking-tight">
+            <h1 className="py-6 text-4xl font-semibold tracking-tight font-responsive">
                 Discussion Thread
             </h1>
             <CardDetails />
@@ -22,18 +22,20 @@ const CommunityDetails : FC<Props> = ({id}) => {
                 <Input type="comment" placeholder="Add a comment" />
                 <Button>Add comment</Button>
             </div>
-            <h1 className="py-6 text-3xl font-semibold tracking-tight">
+            <h1 className="py-6 text-3xl font-semibold tracking-tight title-card-responsive">
                 Comments
             </h1>
+            <div>
+                <CommentCard />
+            </div>
 
-            <CommentCard />
             <div className="flex justify-center">
                 <Button className="px-16">
                     <RefreshCw className="mr-2 h-4 w-4" /> Load more comments
                 </Button>
             </div>
 
-        </div>
+        </main>
     )
 }
 export default CommunityDetails

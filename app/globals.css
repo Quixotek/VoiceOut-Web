@@ -235,3 +235,14 @@
 .pl-8 {
   padding-left: 2rem;
  }
+ .font-responsive {
+  font-size: clamp(2rem, 3vw, 4rem);
+}
+.title-card-responsive{
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+.p-responsive {
+  font-size: clamp(.7rem, 1vw, 2rem);
+  color: #94A3B8;
+  ;
+}

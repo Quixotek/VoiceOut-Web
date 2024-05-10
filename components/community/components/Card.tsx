@@ -28,18 +28,31 @@ interface Props {
 }
 const CardThread: React.FC<Props> = ({ title, description, type, views, replies, id, userName }) => {
   return (
-    <Card className="flex my-6">
-      <div className="w-3/5">
-        <CardHeader>
-          <span className="flex gap-3">
-            <CardTitle>{title}</CardTitle>
-            <Badge>{type}</Badge>
-          </span>
-          <CardDescription>{description}</CardDescription>
+    <Card className="flex my-6 xl:flex-row lg:flex-row flex-col">
+      <div className="lg:w-3/5 xl:w-3/5">
+        <CardHeader className="p-4 lg:p-5 xl:p-5">
+          <div className="flex gap-3 justify-between">
+            <span className="flex gap-3 items-start">
+              <CardTitle className="title-card-responsive">{title}</CardTitle>
+              <Badge >{type}</Badge>
+            </span>
+            <span className="flex xl:hidden lg:hidden gap-2 justify-end">
+              <Avatar className="w-[20px] h-[20px]">
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <Avatar className="w-[20px] h-[20px]">
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </span>
+          </div>
+          <CardDescription className="text">{description}</CardDescription>
         </CardHeader>
+
       </div>
-      <div className="w-2/5 flex flex-col justify-between p-6">
-        <div className="flex justify-end gap-2 py-4">
+      <div className="lg:w-2/5 xl:w-2/5 flex flex-col justify-between p-3 lg:p-4 xl:p-5 ">
+        <div className="hidden xl:flex lg:flex justify-end gap-2 pb-4">
           <Avatar className="w-[24px] h-[24px]">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -54,17 +67,17 @@ const CardThread: React.FC<Props> = ({ title, description, type, views, replies,
           </Avatar>
 
         </div>
-        <div className="flex justify-between items-center">
-          <span className="flex gap-2">
-            <Eye />
-            <p>{views} views</p>
+        <div className="flex justify-evenly lg:justify-between items-center">
+          <span className="flex gap-2 items-center ">
+            <Eye color=" #94A3B8"/>
+            <p className="p-responsive">{views} views</p>
           </span>
-          <span className="flex gap-2">
-            <Newspaper />
-            <p>{replies} replies</p>
+          <span className="flex gap-2 items-center ">
+            <Newspaper color=" #94A3B8"/>
+            <p className="p-responsive">{replies} replies</p>
           </span>
           <Link href={`/community/${id}`} passHref>
-            <Button>View Thread</Button>
+            <Button className="w-[auto]">View Thread</Button>
           </Link>
         </div>
       </div>
