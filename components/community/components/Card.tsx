@@ -27,7 +27,7 @@ interface Props {
 }
 const CardThread: React.FC<Props> = ({ title, description, type, views, replies, id }) => {
   return (
-    <Card className="flex my-6 xl:flex-row lg:flex-row flex-col">
+    <Card className="flex my-6 xl:flex-row lg:flex-row flex-col min-w-[350px]">
       <div className="lg:w-3/5 xl:w-3/5">
         <CardHeader className="p-4 lg:p-5 xl:p-5">
           <div className="flex gap-3 justify-between">

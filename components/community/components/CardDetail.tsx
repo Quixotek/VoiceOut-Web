@@ -61,7 +61,7 @@ const CardDetails : React.FC<Props> = ({threads}) => {
     };
 
     return (
-        <Card className="flex flex-col xl:flex-row lg:flex-row mb-6">
+        <Card className="flex flex-col xl:flex-row lg:flex-row mb-6 min-w-[350px]">
             <div className="xl:w-3/5 lg:w-3/5">
                 <CardHeader >
                     <div className="flex justify-between">

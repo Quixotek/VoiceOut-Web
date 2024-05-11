@@ -51,7 +51,7 @@ const ReplyCard: React.FC<Props> = ({ name, reply }) => {
 
     return (
         <div >
-            <Card className="flex flex-col xl:flex-row lg:flex-row mb-6 p-3 ml-16">
+            <Card className="flex flex-col xl:flex-row lg:flex-row p-3 mt-4 min-w-[250px]">
 
                 <div className="xl:w-4/5 lg:w-4/5">
                     <CardHeader className="p-2">
@@ -63,35 +63,39 @@ const ReplyCard: React.FC<Props> = ({ name, reply }) => {
                                 </Avatar>
                             </span>
                             <span className="flex flex-col px-2 sm:px-4 py-2 gap-3 items-start">
-                                <CardTitle className="title-card-responsive">{name}</CardTitle>
+                                <div className="flex justify-between w-[100%]">
+                                    <CardTitle className="title-card-responsive">{name}</CardTitle>
+                                    <span className="xl:hidden lg:hidden ">
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button variant="ghost" className="h-8 w-8 p-0">
+                                                    <EllipsisVertical className="h-4 w-4" />
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem>
+                                                    <SquarePen className="mr-2 h-4 w-4" />
+                                                    <span>Edit Comment</span>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem onClick={openDeleteDialog}>
+                                                    <CircleX className="mr-2 h-4 w-4" />
+                                                    <span>Delete Comment</span>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    <Info className="mr-2 h-4 w-4" />
+                                                    <span>Delete Comment</span>
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </span>
+                                </div>
+
                                 <CardDescription>{reply}</CardDescription>
+
                             </span>
-                            <span className="flex xl:hidden lg:hidden ">
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="h-8 w-8 p-0">
-                                            <span className="sr-only">Open menu</span>
-                                            <EllipsisVertical className="h-4 w-4" />
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end">
-                                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem>
-                                            <SquarePen className="mr-2 h-4 w-4" />
-                                            <span>Edit Comment</span>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={openDeleteDialog}>
-                                            <CircleX className="mr-2 h-4 w-4" />
-                                            <span>Delete Comment</span>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem>
-                                            <Info className="mr-2 h-4 w-4" />
-                                            <span>Delete Comment</span>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </span>
+
                         </div>
                     </CardHeader>
                 </div>

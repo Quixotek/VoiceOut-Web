@@ -25,7 +25,7 @@ const CommunityPage = () => {
     return (
         <main className=" mx-[3%] xl:mx-[10%] lg:mx-[10%] my-6">
             <div className="flex justify-between gap-5 lg:gap-10">
-                <div className="flex gap-3 w-[100%]">
+                <div className="flex gap-3 w-[100%] min-w-[350px]">
                     <div className="relative w-3/5 xl:w-4/5 lg:w-4/5">
                         <Search className="lucide lucide-search absolute left-2 top-2.5 h-4 w-4" />
                         <Input className="pl-8" type="search" placeholder="search by category" />
@@ -66,29 +66,30 @@ const CommunityPage = () => {
                     </TooltipProvider>
                 </div>
             </div>
-            <div className="">
-                <h1 className="my-6 text-4xl font-semibold tracking-tight font-responsive">
-                    Recent Discussion
-                </h1>
-                <div className="flex xl:hidden lg:hidden items-center justify-end gap-2">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button >Start Discussion</Button>
-                        </DialogTrigger>
-                        <StartDiscussionDialog />
-                    </Dialog>
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Info />
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>You must have an account to start a discussion</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+            <div>
+                <div className="min-w-[350px]">
+                    <h1 className="my-6 text-4xl font-semibold tracking-tight font-responsive">
+                        Recent Discussion
+                    </h1>
+                    <div className="flex xl:hidden lg:hidden items-center justify-end gap-2">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button >Start Discussion</Button>
+                            </DialogTrigger>
+                            <StartDiscussionDialog />
+                        </Dialog>
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Info />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>You must have an account to start a discussion</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </div>
                 </div>
-
                 {threads.map((thread, index) => (
                     <CardThread
                         key={index}
@@ -101,7 +102,7 @@ const CommunityPage = () => {
 
                     />
                 ))}
-              
+
             </div>
 
 

@@ -91,6 +91,10 @@ export const comments = [
             {
                 "name": "Michael",
                 "reply": "Remote work indeed presents unique challenges. Finding effective communication tools and establishing clear expectations are key to success in a remote work environment.",
+            },
+            {
+                "name": "Michael",
+                "reply": "Remote work indeed presents unique challenges. Finding effective communication tools and establishing clear expectations are key to success in a remote work environment.",
             }
         ]
     },

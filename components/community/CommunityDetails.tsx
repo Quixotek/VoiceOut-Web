@@ -19,11 +19,11 @@ const CommunityDetails: FC<Props> = ({ id }) => {
             <Button>
                 <Reply className="mr-2 h-4 w-4" /> Back
             </Button>
-            <h1 className="py-6 text-4xl font-semibold tracking-tight font-responsive">
+            <h1 className="py-6 text-4xl font-semibold tracking-tight font-responsive min-w-[350px]">
                 Discussion Thread
             </h1>
             <CardDetails threads={thread!!} />
-            <div className="flex gap-3">
+            <div className="flex gap-3 min-w-[350px]">
                 <Input type="comment" placeholder="Add a comment" />
                 <Button>Add comment</Button>
             </div>
@@ -34,7 +34,7 @@ const CommunityDetails: FC<Props> = ({ id }) => {
 
             <CommentCard id={id} />
 
-            <div className="flex justify-center">
+            <div className="flex justify-center min-w-[350px]">
                 {comment.length === 0 ? (
                     <h1>No Comments</h1>
                 ) : (

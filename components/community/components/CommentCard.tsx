@@ -68,7 +68,7 @@ const CommentCard: React.FC<Props> = ({ id }) => {
             {comments.map((comment, index) =>
                 comment.threadid === id && (
                     <div key={index}>
-                        <Card className="flex flex-col xl:flex-row lg:flex-row mb-6 p-3">
+                        <Card className="flex flex-col xl:flex-row lg:flex-row p-3 min-w-[350px]">
 
                             <div className="xl:w-3/5 lg:w-3/5">
                                 <CardHeader className="p-2">
@@ -152,15 +152,29 @@ const CommentCard: React.FC<Props> = ({ id }) => {
                             </div>
                         </Card>
                         {comment.replies.length > 0 && !buttonClicked && (
-                            <Button variant='ghost' onClick={handleToggleReplies}>
-                                <CornerUpRight className="mr-2 h-4 w-4" /> <u>see all replies</u>
-                            </Button>
+                            <div className="flex">
+                                 <div className="w-[120px] ml-16">
+                                    <div className="border-l-2 border-b-2 border-gray-500 h-[50%]">
+                                    </div>
+                                </div>
+                                <Button variant='ghost' onClick={handleToggleReplies}>
+                                    <CornerUpRight className="mr-2 h-4 w-4" /> <u>see all replies</u>
+                                </Button>
+                            </div>
                         )}
                         {showReplies && comment.replies.map((reply, replyIndex) => (
-                            <ReplyCard key={replyIndex} name={reply.name} reply={reply.reply} />
+                            <div key={replyIndex} className="flex">
+                                <div className="w-[120px] ml-16">
+                                    <div className="border-l-2 border-b-2 border-gray-500 h-[50%]">
 
+                                    </div>
+                                    <div className={`border-gray-500 h-[50%] ${replyIndex === comment.replies.length - 1 ? 'border-l-0' : 'border-l-2'}`}></div>
+                                </div>
+                                <ReplyCard name={reply.name} reply={reply.reply} />
+                            </div>
                         ))}
-                        <div className="flex gap-3 ml-16 mb-3">
+
+                        <div className="flex gap-3 ml-16 my-3 min-w-[270px]">
                             <Input type="reply" placeholder="Add a reply" />
                             <Button>Add reply</Button>
                         </div>
