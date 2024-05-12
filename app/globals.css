@@ -232,4 +232,17 @@
   margin: 0 16px;
 }
 
- 
+.pl-8 {
+  padding-left: 2rem;
+ }
+ .font-responsive {
+  font-size: clamp(2rem, 3vw, 4rem);
+}
+.title-card-responsive{
+  font-size: clamp(20px, 2vw, 25px);
+}
+.p-responsive {
+  font-size: clamp(11px, 1vw, 15px);
+  color: #94A3B8;
+  ;
+}

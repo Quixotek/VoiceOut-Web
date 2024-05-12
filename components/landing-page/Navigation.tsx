@@ -27,7 +27,7 @@ const Navigation = () => {
           </Link>
 
           <Link
-            href="#"
+            href="/"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Home
