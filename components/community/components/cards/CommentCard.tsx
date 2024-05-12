@@ -40,15 +40,6 @@ const CommentCard: React.FC<Props> = ({ id }) => {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [showReplySection, setShowReplySection] = useState(false);
 
-    const openDeleteDialog = () => setIsDeleteDialogOpen(true);
-    const closeDeleteDialog = () => setIsDeleteDialogOpen(false);
-    const handleLikeClick = () => setIsLiked(!isLiked);
-    const handleToggleReplies = () => {
-        setShowReplies(!showReplies);
-        setButtonClicked(true);
-    };
-    const handleReplyButtonClick = () => setShowReplySection(true);
-
     return (
         <>
             {comments.map((comment, index) => {
@@ -75,7 +66,7 @@ const CommentCard: React.FC<Props> = ({ id }) => {
 
                                         <span className="flex xl:hidden lg:hidden ">
                                             <Dropdown
-                                                open={openDeleteDialog}
+                                                open={() => setIsDeleteDialogOpen(true)}
                                                 label={"Action"}
                                                 item1={"Edit Comment"}
                                                 item2={"Delete Comment"}
@@ -87,7 +78,7 @@ const CommentCard: React.FC<Props> = ({ id }) => {
                             <div className="xl:w-2/5 lg:w-2/5 flex flex-col justify-between">
                                 <div className="hidden xl:flex lg:flex justify-end ">
                                     <Dropdown
-                                        open={openDeleteDialog}
+                                        open={() => setIsDeleteDialogOpen(true)}
                                         label={"Action"}
                                         item1={"Edit Comment"}
                                         item2={"Delete Comment"}
@@ -95,11 +86,11 @@ const CommentCard: React.FC<Props> = ({ id }) => {
                                 </div>
 
                                 <div className="flex justify-end items-center gap-3">
-                                    <span className="flex justify-end items-center gap-2 cursor-pointer" onClick={handleLikeClick}>
+                                    <span className="flex justify-end items-center gap-2 cursor-pointer" onClick={() => setIsLiked(!isLiked)}>
                                         <Heart color={isLiked ? "#94A3B8" : "#BA0000"} />
                                         <p className="p-responsive">{formatNumber(comment.reacts)} react</p>
                                     </span>
-                                    <Button variant='ghost' onClick={handleReplyButtonClick}>
+                                    <Button variant='ghost' onClick={() => setShowReplySection(true)}>
                                         <Reply className="mr-2 h-4 w-4" /> <p className="p-responsive"><u >Reply</u></p>
                                     </Button>
                                 </div>
@@ -111,7 +102,11 @@ const CommentCard: React.FC<Props> = ({ id }) => {
                                 <div className="w-[120px] ml-16">
                                     <div className="border-l-2 border-b-2 border-[#CBD5E1] h-[50%]"></div>
                                 </div>
-                                <Button className="mt-3" variant='ghost' onClick={() => { handleToggleReplies(); handleReplyButtonClick(); }}>
+                                <Button className="mt-3" variant='ghost' onClick={() => {
+                                    setShowReplies(!showReplies);
+                                    setButtonClicked(true);
+                                    setShowReplySection(true);
+                                }}>
                                     <CornerUpRight className="mr-2 h-4 w-4" /> <u>see all replies</u>
                                 </Button>
                             </div>
@@ -139,7 +134,7 @@ const CommentCard: React.FC<Props> = ({ id }) => {
 
             <DeleteAlertDialog
                 open={isDeleteDialogOpen}
-                close={closeDeleteDialog}
+                close={() => setIsDeleteDialogOpen(false)}
                 title={"Are you sure absolutely sure?"}
                 description={"This action cannot be undone. This will permanently delete your posted discussion and its comments."}
             />

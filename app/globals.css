@@ -240,7 +240,6 @@
 }
 .title-card-responsive{
   font-size: clamp(20px, 2vw, 25px);
-  max-width: fit-content;
 }
 .p-responsive {
   font-size: clamp(11px, 1vw, 15px);

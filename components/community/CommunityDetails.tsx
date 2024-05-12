@@ -15,8 +15,6 @@ const CommunityDetails: FC<Props> = ({ id }) => {
     const thread = threads.find((thread) => thread.id === id);
     const comment = comments.filter((comment) => comment.threadid === id);
 
-    console.log("comment" + comment);
-
     return (
         <main className="mx-[3%] xl:mx-[10%] lg:mx-[10%] my-6">
             <BackButton />

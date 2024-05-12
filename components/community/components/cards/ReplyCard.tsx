@@ -21,15 +21,7 @@ interface Props {
 
 const ReplyCard: React.FC<Props> = ({ name, reply }) => {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-
-    const openDeleteDialog = () => {
-        setIsDeleteDialogOpen(true);
-    };
-
-    const closeDeleteDialog = () => {
-        setIsDeleteDialogOpen(false);
-    };
-
+    
     return (
         <Card className="flex flex-col xl:flex-row lg:flex-row p-3 mt-4 min-w-[250px] w-full">
             <div className="xl:w-4/5 lg:w-4/5">
@@ -45,7 +37,7 @@ const ReplyCard: React.FC<Props> = ({ name, reply }) => {
                                     <CardTitle className="title-card-responsive">{name}</CardTitle>
                                     <span className="xl:hidden lg:hidden ">
                                         <Dropdown
-                                            open={openDeleteDialog}
+                                            open={() => setIsDeleteDialogOpen(true)}
                                             label={"Action"}
                                             item1={"Edit Reply"}
                                             item2={"Delete Reply"}
@@ -61,7 +53,7 @@ const ReplyCard: React.FC<Props> = ({ name, reply }) => {
             <div className="xl:w-1/5 lg:w-1/5 flex flex-col justify-start">
                 <div className="flex justify-end hidden xl:flex lg:flex">
                     <Dropdown
-                        open={openDeleteDialog}
+                        open={() => setIsDeleteDialogOpen(true)}
                         label={"Action"}
                         item1={"Edit Reply"}
                         item2={"Delete Reply"}
@@ -70,7 +62,7 @@ const ReplyCard: React.FC<Props> = ({ name, reply }) => {
             </div>
             <DeleteAlertDialog
                 open={isDeleteDialogOpen}
-                close={closeDeleteDialog}
+                close={() => setIsDeleteDialogOpen(false)}
                 title={"Are you sure absolutely sure?"}
                 description={"This action cannot be undone. This will permanently delete your posted discussion and its comments."}
             />

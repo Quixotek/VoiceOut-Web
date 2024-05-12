@@ -23,18 +23,12 @@ interface Props {
 const CardDetails: React.FC<Props> = ({ threads }) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-
-    const openDeleteDialog = () => setIsDeleteDialogOpen(true);
-    const closeDeleteDialog = () => setIsDeleteDialogOpen(false);
-
-    const handleLikeClick = () => setIsLiked(!isLiked);
-
     const formatNumber = (num: number) => {
         if (num >= 1e9) {
             return (num / 1e9) + 'B';
         }
         if (num >= 1e6) {
-            return (num / 1e6)+ 'M';
+            return (num / 1e6) + 'M';
         }
         if (num >= 1e3) {
             return Math.floor(num / 100) / 10 + 'k';
@@ -48,11 +42,18 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
                     <div className="flex justify-between">
                         <span className="flex gap-3 items-start">
                             <CardTitle className="title-card-responsive">{threads.title}</CardTitle>
-                            <Badge>{threads.type}</Badge>
+                            <Badge style={{
+                                color: '#FFFFFF',
+                                backgroundColor:
+                                    threads.type === 'Gender' ? '#9000E9' :
+                                        threads.type === 'Racial' ? '#000000' :
+                                            threads.type === 'Age' ? '#003F9D' :
+                                                threads.type === 'Disability' ? '#BA7000' : '#FFFFFF'
+                            }}>{threads.type}</Badge>
                         </span>
                         <span className="flex xl:hidden lg:hidden ">
                             <Dropdown
-                                open={openDeleteDialog}
+                                open={() => setIsDeleteDialogOpen(true)}
                                 label={"Action"}
                                 item1={"Edit Discussion"}
                                 item2={"Delete Discussion"}
@@ -73,14 +74,14 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
                         <p className="p-responsive">{formatNumber(threads.replies)} replies</p>
                     </span>
                     <Dropdown
-                        open={openDeleteDialog}
+                        open={() => setIsDeleteDialogOpen(true)}
                         label={"Action"}
                         item1={"Edit Discussion"}
                         item2={"Delete Discussion"}
                         item3={"Report Discussion"} />
                 </div>
                 <div>
-                    <span className="flex justify-end items-center gap-2 mt-2 cursor-pointer" onClick={handleLikeClick}>
+                    <span className="flex justify-end items-center gap-2 mt-2 cursor-pointer" onClick={() => setIsLiked(!isLiked)}>
                         <Heart color={isLiked ? "#94A3B8" : "#BA0000"} />
                         <p className="p-responsive">{formatNumber(threads.reacts)} react</p>
                     </span>
@@ -88,7 +89,7 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
             </div>
             <DeleteAlertDialog
                 open={isDeleteDialogOpen}
-                close={closeDeleteDialog}
+                close={() => setIsDeleteDialogOpen(false)}
                 title={"Are you sure absolutely sure?"}
                 description={"This action cannot be undone. This will permanently delete your posted discussion and its comments."}
             />
