@@ -7,19 +7,19 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+
 import { FC } from "react"
 
 interface Props {
     title: string
     description: string
-
+    open: boolean;
+    close: () => void;
 }
-const DeleteAlertDialog: FC<Props> = ({ title, description }) => {
+const DeleteAlertDialog: FC<Props> = ({ title, description, open, close }) => {
     return (
-
+        <AlertDialog open={open}>
         <AlertDialogContent>
             <AlertDialogHeader>
                 <AlertDialogTitle>{title}</AlertDialogTitle>
@@ -28,24 +28,11 @@ const DeleteAlertDialog: FC<Props> = ({ title, description }) => {
                 </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogCancel onClick={close}>Cancel</AlertDialogCancel>
                 <AlertDialogAction>Continue</AlertDialogAction>
             </AlertDialogFooter>
         </AlertDialogContent>
-        //  <AlertDialog open={isDeleteDialogOpen}>
-        //  <AlertDialogContent>
-        //      <AlertDialogHeader>
-        //          <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
-        //          <AlertDialogDescription>
-        //              This action cannot be undone. This will permanently delete your posted discussion and its comments.
-        //          </AlertDialogDescription>
-        //      </AlertDialogHeader>
-        //      <AlertDialogFooter>
-        //          <AlertDialogCancel onClick={closeDeleteDialog}>Cancel</AlertDialogCancel>
-        //          <AlertDialogAction>Continue</AlertDialogAction>
-        //      </AlertDialogFooter>
-        //  </AlertDialogContent>
-        // </AlertDialog>
+    </AlertDialog>
     )
 }
 export default DeleteAlertDialog

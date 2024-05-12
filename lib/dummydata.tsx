@@ -1,4 +1,4 @@
-import { Thread } from "@/components/community/components/CardDetail"
+import { Thread } from "@/components/community/components/cards/CardDetail"
 
 export const users = [
     {
@@ -29,7 +29,7 @@ export const threads : Thread[]= [
         "userid": "1001",
         "id": "1",
         "title": "Remote Work Challenges",
-        "description": "This forum discussion focuses on experiences of gender discrimination in professional settings. Participants share anecdotes, offer support, and discuss strategies for addressing bias in hiring, promotions, and everyday interactions.",
+        "description": "This forum discussion focuses on experiences ",
         "type": "Work",
         "views": 1987,
         "replies": 63,
@@ -86,11 +86,11 @@ export const comments = [
         "threadid": "1",
         "commentid": "1c",
         "name": "Michael",
-        "comment": "This discussion aims to address the challenges associated with remote work, such as communication barriers, maintaining productivity, and fostering a sense of community.",
+        "comment": "This discussion aims to address the challenges ",
         "replies": [
             {
                 "name": "Michael",
-                "reply": "Remote work indeed presents unique challenges. Finding effective communication tools and establishing clear expectations are key to success in a remote work environment.",
+                "reply": "Remote work indeed presents unique challenges. ",
             },
             {
                 "name": "Michael",
