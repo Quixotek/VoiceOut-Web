@@ -28,20 +28,20 @@ export const threads : Thread[]= [
     {
         "userid": "1001",
         "id": "1",
-        "title": "Remote Work Challenges",
-        "description": "This forum discussion focuses on experiences ",
-        "type": "Work",
+        "title": "Gender Bias in the Workplace",
+        "description": "Participants exchange perspectives on discrimination faced by LGBTQ+ individuals, including workplace discrimination, housing issues, and societal attitudes. They explore legal protections, advocacy efforts, and the importance of allyship in fostering inclusivity.",
+        "type": "Gender",
         "views": 1987,
-        "replies": 63,
-        "reacts": 100,
+        "replies": 6000000,
+        "reacts": 10000000,
 
     },
     {
         "userid": "2001",
         "id": "2",
-        "title": "Diversity in Tech Industry",
-        "description": "Exploring the importance of diversity and inclusion in the technology sector.",
-        "type": "Tech",
+        "title": "Racial Profiling: Personal Stories and Solutions",
+        "description": "Participants exchange perspectives on discrimination faced by LGBTQ+ individuals, including workplace discrimination, housing issues, and societal attitudes. They explore legal protections, advocacy efforts, and the importance of allyship in fostering inclusivity.",
+        "type": "Racial",
         "views": 3124,
         "replies": 105,
         "reacts": 100,
@@ -49,9 +49,9 @@ export const threads : Thread[]= [
     {
         "userid": "3001",
         "id": "3",
-        "title": "Burnout Prevention Strategies",
-        "description": "This forum discussion focuses on experiences of gender discrimination in professional settings. Participants share anecdotes, offer support, and discuss strategies for addressing bias in hiring, promotions, and everyday interactions.",
-        "type": "Health",
+        "title": "LGBTQ+ Discrimination: Challenges and Progress",
+        "description": "Participants exchange perspectives on discrimination faced by LGBTQ+ individuals, including workplace discrimination, housing issues, and societal attitudes. They explore legal protections, advocacy efforts, and the importance of allyship in fostering inclusivity.",
+        "type": "Gender",
         "views": 1456,
         "replies": 38,
         "reacts": 100,
@@ -60,9 +60,9 @@ export const threads : Thread[]= [
     {
         "userid": " 4001",
         "id": "4",
-        "title": "Innovation in Education",
-        "description": "Exploring innovative approaches to teaching and learning in the digital age.",
-        "type": "Education",
+        "title": "Ageism: Breaking Down Stereotypes",
+        "description": "Participants exchange perspectives on discrimination faced by LGBTQ+ individuals, including workplace discrimination, housing issues, and societal attitudes. They explore legal protections, advocacy efforts, and the importance of allyship in fostering inclusivity.",
+        "type": "Age",
         "views": 2379,
         "replies": 92,
         "reacts": 100,
@@ -71,9 +71,9 @@ export const threads : Thread[]= [
     {
         "userid": "5001",
         "id": "5",
-        "title": "Environmental Sustainability in Business",
-        "description": "Discussing the role of businesses in promoting environmental sustainability and combating climate change.",
-        "type": "Business",
+        "title": "Disability Rights: Access and Equality",
+        "description": "Participants exchange perspectives on discrimination faced by LGBTQ+ individuals, including workplace discrimination, housing issues, and societal attitudes. They explore legal protections, advocacy efforts, and the importance of allyship in fostering inclusivity.",
+        "type": "Disability",
         "views": 1897,
         "replies": 54,
         "reacts": 100,
@@ -87,6 +87,7 @@ export const comments = [
         "commentid": "1c",
         "name": "Michael",
         "comment": "This discussion aims to address the challenges ",
+        "reacts": 1568,
         "replies": [
             {
                 "name": "Michael",
@@ -103,6 +104,7 @@ export const comments = [
         "commentid": "2c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 1000000,
         "replies": []
     },
     {
@@ -110,6 +112,7 @@ export const comments = [
         "commentid": "3c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 25648,
         "replies": []
     },
     {
@@ -117,6 +120,7 @@ export const comments = [
         "commentid": "4c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 100,
         "replies": []
     },
     {
@@ -124,6 +128,7 @@ export const comments = [
         "commentid": "5c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 100,
         "replies": []
     },
     {
@@ -131,6 +136,7 @@ export const comments = [
         "commentid": "6c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 100,
         "replies": []
     },
     {
@@ -138,6 +144,7 @@ export const comments = [
         "commentid": "7c",
         "name": "Ella",
         "comment": "I've found that setting boundaries between work and personal life can be particularly challenging when working from home. Does anyone have tips for maintaining a healthy work-life balance?",
+        "reacts": 100,
         "replies": []
     },
     {
@@ -145,6 +152,7 @@ export const comments = [
         "commentid": "1c",
         "name": "Michael",
         "comment": "This discussion highlights the significance of diversity in tech, including its positive impact on innovation, problem-solving, and company culture.",
+        "reacts": 100,
         "replies": [
             {
                 "name": "Sophia",
@@ -157,6 +165,7 @@ export const comments = [
         "commentid": "2c",
         "name": "David",
         "comment": "As a person of color working in tech, I've often faced challenges related to representation and inclusion. It's essential for companies to create environments where everyone feels valued and respected.",
+        "reacts": 100,
         "replies": []
     },
     {
@@ -164,6 +173,7 @@ export const comments = [
         "commentid": "1c",
         "name": "Ella",
         "comment": "This discussion focuses on practical ways to prevent burnout, such as setting boundaries, practicing self-care, and seeking support from colleagues and supervisors.",
+        "reacts": 100,
         "replies": [
             {
                 "name": "Sophie",
@@ -176,6 +186,7 @@ export const comments = [
         "commentid": "1c",
         "name": "David",
         "comment": "This discussion aims to explore innovative teaching methods, educational technologies, and ways to adapt to the changing needs of students in a digital age.",
+        "reacts": 100,
         "replies": [
             {
                 "name": "Ella",

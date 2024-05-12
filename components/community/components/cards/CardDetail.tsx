@@ -29,6 +29,18 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
 
     const handleLikeClick = () => setIsLiked(!isLiked);
 
+    const formatNumber = (num: number) => {
+        if (num >= 1e9) {
+            return (num / 1e9) + 'B';
+        }
+        if (num >= 1e6) {
+            return (num / 1e6)+ 'M';
+        }
+        if (num >= 1e3) {
+            return Math.floor(num / 100) / 10 + 'k';
+        }
+        return num.toString();
+    };
     return (
         <Card className="flex flex-col xl:flex-row lg:flex-row mb-6 min-w-[350px]">
             <div className="xl:w-3/5 lg:w-3/5">
@@ -54,11 +66,11 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
                 <div className="flex justify-end items-center gap-3">
                     <span className="flex gap-2 items-center">
                         <Eye color=" #94A3B8" />
-                        <p className="p-responsive">{threads.views} views</p>
+                        <p className="p-responsive">{formatNumber(threads.views)} views</p>
                     </span>
                     <span className="flex gap-2 items-center">
                         <Newspaper color=" #94A3B8" />
-                        <p className="p-responsive">{threads.replies} replies</p>
+                        <p className="p-responsive">{formatNumber(threads.replies)} replies</p>
                     </span>
                     <Dropdown
                         open={openDeleteDialog}
@@ -68,9 +80,9 @@ const CardDetails: React.FC<Props> = ({ threads }) => {
                         item3={"Report Discussion"} />
                 </div>
                 <div>
-                    <span className="flex justify-end items-center gap-2 mt-2" onClick={handleLikeClick}>
+                    <span className="flex justify-end items-center gap-2 mt-2 cursor-pointer" onClick={handleLikeClick}>
                         <Heart color={isLiked ? "#94A3B8" : "#BA0000"} />
-                        <p className="p-responsive">{threads.reacts} react</p>
+                        <p className="p-responsive">{formatNumber(threads.reacts)} react</p>
                     </span>
                 </div>
             </div>

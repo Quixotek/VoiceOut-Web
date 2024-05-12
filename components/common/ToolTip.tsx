@@ -15,7 +15,7 @@ const ToolTip: FC<Props> = ({ content }) => {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <Info />
+                    <Info className="cursor-pointer"/>
                 </TooltipTrigger>
                 <TooltipContent>
                     <p>{content}</p>

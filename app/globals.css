@@ -239,10 +239,11 @@
   font-size: clamp(2rem, 3vw, 4rem);
 }
 .title-card-responsive{
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(20px, 2vw, 25px);
+  max-width: fit-content;
 }
 .p-responsive {
-  font-size: clamp(.7rem, 1vw, 2rem);
+  font-size: clamp(11px, 1vw, 15px);
   color: #94A3B8;
   ;
 }
